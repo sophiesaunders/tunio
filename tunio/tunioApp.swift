@@ -8,6 +8,7 @@
 import AudioKit
 import SoundpipeAudioKit // PitchTap
 import AudioKitEX // Fader
+import AVFoundation // AVAudioSession
 import SwiftUI
 
 @main
@@ -50,11 +51,16 @@ class ToneDetector : ObservableObject, HasAudioEngine {
         silence = Fader(tappableB, gain: 0)
         engine.output = silence
         
-        do {
-            try engine.start()
-        } catch {
-            fatalError()
-        }
+        #if os(iOS)
+            do {
+                Settings.bufferLength = .short
+                try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(Settings.bufferLength.duration)
+                try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .mixWithOthers, .allowBluetooth])
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                fatalError()
+            }
+        #endif
         
         tracker = PitchTap(mic) { pitch, amp in
             DispatchQueue.main.async {
@@ -94,6 +100,20 @@ class ToneDetector : ObservableObject, HasAudioEngine {
             data.note = "\(noteNamesFlats[index])"
         } else {
             data.note = "\(noteNamesFlats[index]) / \(noteNamesSharps[index])"
+        }
+    }
+    
+    func getMicrophoneAccess() async {
+        if #available(iOS 17.0, *) {
+            let permission = AVAudioApplication.shared.recordPermission
+            switch permission {
+                case .granted: return
+                case .denied: fatalError()
+                case .undetermined: break
+                default: break
+            }
+            
+            await AVAudioApplication.requestRecordPermission()
         }
     }
 }

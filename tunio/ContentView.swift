@@ -56,5 +56,8 @@ struct ContentView: View {
                 td.stop()
             }
         }
+        .task {
+            await td.getMicrophoneAccess()
+        }
     }
 }
