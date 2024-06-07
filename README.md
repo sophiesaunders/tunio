@@ -22,7 +22,7 @@ This project is certainly still a work in progress, so stay tuned for more upcom
 5. SOUND MIGHT JUST NOT WORK EVER ON THE SIMULATOR. Others are having this problem too with iOS 17+, the app is working on my actual phone but not the iOS simulator.
 6. SwiftUI is the newer, swift-ier version of UIKit. A lot of tutorials are for UIKit which are only partially relevant.
 
-## TODO
+## To Do List
 
 ### Short-term: Tuner
 - Add the ability to actually distinguish level of sharpness or flatness on a note (from the frequency) and add a float display on a scale e.g. -10 to 10.
