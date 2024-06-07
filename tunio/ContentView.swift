@@ -5,9 +5,11 @@
 //  Created by Sophie Saunders on 6/3/24.
 //
 
+import AVFoundation // AVAudioSession
 import AudioKit
 import SoundpipeAudioKit // PitchTap
 import AudioKitEX // Fader
+import AudioKitUI // NodeRollingView, ...
 import SwiftUI
 
 struct ContentView: View {
@@ -47,6 +49,14 @@ struct ContentView: View {
                     Text("Octave")
                     Text(String(toneMgr.data.octave))
                 }.padding()
+                
+                InputDevicePicker(device: toneMgr.initialDevice!)
+
+                NodeRollingView(toneMgr.tappableA).clipped()
+
+                NodeOutputView(toneMgr.tappableB).clipped()
+
+                NodeFFTView(toneMgr.tappableC).clipped()
             }
             .navigationTitle("Tunio")
             .padding()
@@ -60,6 +70,33 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
+struct InputDevicePicker: View {
+    @State var device: Device
+
+    var body: some View {
+        Picker("Input: \(device.deviceID)", selection: $device) {
+            ForEach(getDevices(), id: \.self) {aDevice in
+                Text(String(aDevice.name))
+            }
+        }
+        .pickerStyle(MenuPickerStyle())
+        .onChange(of: device, perform: setInputDevice)
+    }
+
+    func getDevices() -> [Device] {
+        AudioEngine.inputDevices.compactMap { $0 }
+    }
+
+    func setInputDevice(to device: Device) {
+        let engine = AudioEngine()
+        do {
+            try engine.setDevice(device)
+        } catch let err {
+            print(err)
+        }
+    }
 }
+
+//#Preview {
+//    ContentView()
+//}

@@ -5,9 +5,11 @@
 //  Created by Sophie Saunders on 6/3/24.
 //
 
+import AVFoundation // AVAudioApplication
 import AudioKit
 import SoundpipeAudioKit // PitchTap
 import AudioKitEX // Fader
+import AudioToolbox
 import SwiftUI
 
 // ???
@@ -32,7 +34,7 @@ class TunerManager : ObservableObject, HasAudioEngine {
     @Published var data = TunerData()
     let engine = AudioEngine()
     
-    let device: Device
+    let initialDevice: Device?
     let mic: AudioEngine.InputNode
     let tappableA: Fader
     let tappableB: Fader
@@ -47,14 +49,20 @@ class TunerManager : ObservableObject, HasAudioEngine {
     init() {
         guard let inputTmp = engine.input else { fatalError() }
         mic = inputTmp
-        guard let deviceTmp = engine.inputDevice else { fatalError() }
-        device = deviceTmp
-        
+        guard let device: Device? = engine.device else { fatalError() }
+        initialDevice = device 
+
         tappableA = Fader(mic)
         tappableB = Fader(tappableA)
         tappableC = Fader(tappableB)
         silence = Fader(tappableC, gain: 0)
         engine.output = silence
+        
+        do {
+            try engine.start()
+        } catch {
+            fatalError()
+        }
         
         tracker = PitchTap(mic) { pitch, amp in
             DispatchQueue.main.async {
@@ -63,6 +71,17 @@ class TunerManager : ObservableObject, HasAudioEngine {
         }
         tracker.start()
     }
+    
+//    func setupAudioSession() async {
+//        var recordPermission = AVAudioApplication.shared.recordPermission
+//        if recordPermission == .undetermined {
+//            await AVAudioApplication.requestRecordPermission()
+//            recordPermission = AVAudioApplication.shared.recordPermission
+//        }
+//        if recordPermission == .denied {
+//            fatalError()
+//        }
+//    }
     
     func update(_ pitch: AUValue, _ amp: AUValue) {
         guard amp > 0.1 else { return }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E44FABD32C1272EA00D1EB63 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E44FABD22C1272EA00D1EB63 /* AudioKit */; };
 		E44FABD62C12744600D1EB63 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E44FABD52C12744600D1EB63 /* SoundpipeAudioKit */; };
+		E44FABD92C13678900D1EB63 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = E44FABD82C13678900D1EB63 /* AudioKitUI */; };
 		E4CDA89B2C0E2E1800518BBD /* tunioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA89A2C0E2E1800518BBD /* tunioApp.swift */; };
 		E4CDA89D2C0E2E1800518BBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA89C2C0E2E1800518BBD /* ContentView.swift */; };
 		E4CDA89F2C0E2E1B00518BBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CDA89E2C0E2E1B00518BBD /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44FABD62C12744600D1EB63 /* SoundpipeAudioKit in Frameworks */,
+				E44FABD92C13678900D1EB63 /* AudioKitUI in Frameworks */,
 				E44FABD32C1272EA00D1EB63 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +94,7 @@
 			packageProductDependencies = (
 				E44FABD22C1272EA00D1EB63 /* AudioKit */,
 				E44FABD52C12744600D1EB63 /* SoundpipeAudioKit */,
+				E44FABD82C13678900D1EB63 /* AudioKitUI */,
 			);
 			productName = tunio;
 			productReference = E4CDA8972C0E2E1800518BBD /* tunio.app */;
@@ -124,6 +127,7 @@
 			packageReferences = (
 				E44FABD12C1272EA00D1EB63 /* XCRemoteSwiftPackageReference "AudioKit" */,
 				E44FABD42C12744600D1EB63 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+				E44FABD72C13678900D1EB63 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
 			);
 			productRefGroup = E4CDA8982C0E2E1800518BBD /* Products */;
 			projectDirPath = "";
@@ -285,6 +289,7 @@
 				DEVELOPMENT_TEAM = 8S6UQ4C3S2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is used to capture input for detecting sound properties.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -298,7 +303,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sophie.tunio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -322,6 +327,7 @@
 				DEVELOPMENT_TEAM = 8S6UQ4C3S2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is used to capture input for detecting sound properties.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -335,7 +341,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sophie.tunio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -387,6 +393,14 @@
 				minimumVersion = 5.6.1;
 			};
 		};
+		E44FABD72C13678900D1EB63 /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -399,6 +413,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E44FABD42C12744600D1EB63 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
 			productName = SoundpipeAudioKit;
+		};
+		E44FABD82C13678900D1EB63 /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E44FABD72C13678900D1EB63 /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
