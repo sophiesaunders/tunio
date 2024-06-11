@@ -5,68 +5,8 @@
 //  Created by Sophie Saunders on 6/3/24.
 //
 
-import AVFoundation // AVAudioApplication
 import AudioKitUI // NodeOutputView
 import SwiftUI
-
-struct NoteDistanceConstantMarkers: View {
-    var body: some View {
-
-        // All the horizontal tick marks
-        HStack {
-            ForEach(0..<25) { index in
-                Rectangle()
-                    .frame(width: 1, height: tickSize(forIndex: index))
-                    .cornerRadius(1)
-                    .foregroundColor(Color("DarkerGray"))
-                    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                
-                if index < 24 {
-                    Spacer()
-                }
-            }
-        }
-    }
-    private func tickSize(forIndex index: Int) -> CGFloat {
-        switch index {
-        case 12: 160 // Middle tick is the tallest
-        case 0, 4, 8, 16, 20, 24: 95
-        default: 50
-        }
-    }
-}
-
-struct CurrentNoteMarker : View {
-    let distance: Float
-    
-    var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .center) {
-                Rectangle()
-                    .frame(width: 4, height: 160)
-                    .cornerRadius(4)
-                    .foregroundColor(-5 < distance && distance < 5 ? .green : .red)
-            }
-            .frame(width: geometry.size.width)
-            .offset(x: (geometry.size.width / 2) * CGFloat(distance / 50))
-            .animation(.easeInOut, value: distance)
-        }
-    }
-}
-
-func getMicrophoneAccess() async {
-    if #available(iOS 17.0, *) {
-        let permission = AVAudioApplication.shared.recordPermission
-        switch permission {
-            case .granted: return
-            case .denied: fatalError()
-            case .undetermined: break
-            default: break
-        }
-        
-        await AVAudioApplication.requestRecordPermission()
-    }
-}
 
 struct ContentView: View {
     
@@ -130,7 +70,7 @@ struct ContentView: View {
             }
         }
         .task {
-            await getMicrophoneAccess()
+            await PermissionsChecker.getMicrophoneAccess()
         }
     }
 }

@@ -52,16 +52,7 @@ class ToneDetector : ObservableObject, HasAudioEngine {
         silence = Fader(tappableB, gain: 0)
         engine.output = silence
         
-        #if os(iOS)
-            do {
-                Settings.bufferLength = .short
-                try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(Settings.bufferLength.duration)
-                try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .mixWithOthers, .allowBluetooth])
-                try AVAudioSession.sharedInstance().setActive(true)
-            } catch {
-                fatalError()
-            }
-        #endif
+        PermissionsChecker.setSessionParameters()
         
         tracker = PitchTap(mic) { pitch, amp in
             DispatchQueue.main.async {

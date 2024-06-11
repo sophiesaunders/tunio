@@ -25,10 +25,9 @@ This project is certainly still a work in progress, so stay tuned for more upcom
 ## To Do List
 
 ### Short-term: Tuner
-- Add the ability to actually distinguish level of sharpness or flatness on a note (from the frequency) and add a float display on a scale e.g. -10 to 10.
 - Add an app icon and a logo.
-- Improve the basic UI a little bit... Spacing, the weird empty left/right blocks, contain the wave graph to a smaller strip.
-- Add a UI for the needle of flat -> sharp, for actually tuning. 
+- Update to matching color scheme.
+- Test: Make sure iOS doesn't freeze anymore after sitting in background.
 
 ### Long-term: Brainstorm
 - Add a sustained note mode (user selects the note, the app plays a tone).
