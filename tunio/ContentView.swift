@@ -8,7 +8,35 @@
 import AudioKitUI // NodeOutputView
 import SwiftUI
 
+struct NoteDistanceConstantMarkers: View {
+    var body: some View {
+
+        // All the horizontal tick marks
+        HStack {
+            ForEach(0..<25) { index in
+                Rectangle()
+                    .frame(width: 1, height: tickSize(forIndex: index))
+                    .cornerRadius(1)
+                    .foregroundColor(Color("DarkerGray"))
+                    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                
+                if index < 24 {
+                    Spacer()
+                }
+            }
+        }
+    }
+    private func tickSize(forIndex index: Int) -> CGFloat {
+        switch index {
+        case 12: 160 // Middle tick is the tallest
+        case 0, 4, 8, 16, 20, 24: 95
+        default: 50
+        }
+    }
+}
+
 struct ContentView: View {
+    
     // StateObject means that when a Published value changes, we will be notified.
     @StateObject var td = ToneDetector()
     
@@ -48,9 +76,12 @@ struct ContentView: View {
             
             Spacer()
             
-            NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: Color("LighterPink")).clipped()
+            NoteDistanceConstantMarkers().padding()
             
-            Spacer()
+            NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: Color("LighterPink"))
+                .clipped()
+                .frame(height: 200)
+            
         }
         .font(.system(size: 20, design: .serif))
         .background(Color("LighterPink"))
