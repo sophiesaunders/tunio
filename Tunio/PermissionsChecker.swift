@@ -6,6 +6,7 @@
 //
 
 import AVFoundation // AVAudioApplication
+import AudioKit // Settings
 
 class PermissionsChecker {
     
