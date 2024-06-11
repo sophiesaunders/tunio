@@ -12,7 +12,7 @@
 		E44FABD92C13678900D1EB63 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = E44FABD82C13678900D1EB63 /* AudioKitUI */; };
 		E44FABDB2C17E4EA00D1EB63 /* NoteMarkerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44FABDA2C17E4EA00D1EB63 /* NoteMarkerViews.swift */; };
 		E44FABDD2C17E59700D1EB63 /* PermissionsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44FABDC2C17E59700D1EB63 /* PermissionsChecker.swift */; };
-		E4CDA89B2C0E2E1800518BBD /* tunioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA89A2C0E2E1800518BBD /* tunioApp.swift */; };
+		E4CDA89B2C0E2E1800518BBD /* TunioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA89A2C0E2E1800518BBD /* TunioApp.swift */; };
 		E4CDA89D2C0E2E1800518BBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA89C2C0E2E1800518BBD /* ContentView.swift */; };
 		E4CDA89F2C0E2E1B00518BBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CDA89E2C0E2E1B00518BBD /* Assets.xcassets */; };
 		E4CDA8A32C0E2E1B00518BBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CDA8A22C0E2E1B00518BBD /* Preview Assets.xcassets */; };
@@ -21,11 +21,11 @@
 /* Begin PBXFileReference section */
 		E44FABDA2C17E4EA00D1EB63 /* NoteMarkerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteMarkerViews.swift; sourceTree = "<group>"; };
 		E44FABDC2C17E59700D1EB63 /* PermissionsChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsChecker.swift; sourceTree = "<group>"; };
-		E4CDA8972C0E2E1800518BBD /* tunio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tunio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4CDA89A2C0E2E1800518BBD /* tunioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tunioApp.swift; sourceTree = "<group>"; };
+		E4CDA8972C0E2E1800518BBD /* Tunio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4CDA89A2C0E2E1800518BBD /* TunioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunioApp.swift; sourceTree = "<group>"; };
 		E4CDA89C2C0E2E1800518BBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4CDA89E2C0E2E1B00518BBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E4CDA8A02C0E2E1B00518BBD /* tunio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tunio.entitlements; sourceTree = "<group>"; };
+		E4CDA8A02C0E2E1B00518BBD /* Tunio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tunio.entitlements; sourceTree = "<group>"; };
 		E4CDA8A22C0E2E1B00518BBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,7 +46,7 @@
 		E4CDA88E2C0E2E1800518BBD = {
 			isa = PBXGroup;
 			children = (
-				E4CDA8992C0E2E1800518BBD /* tunio */,
+				E4CDA8992C0E2E1800518BBD /* Tunio */,
 				E4CDA8982C0E2E1800518BBD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,23 +54,23 @@
 		E4CDA8982C0E2E1800518BBD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E4CDA8972C0E2E1800518BBD /* tunio.app */,
+				E4CDA8972C0E2E1800518BBD /* Tunio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E4CDA8992C0E2E1800518BBD /* tunio */ = {
+		E4CDA8992C0E2E1800518BBD /* Tunio */ = {
 			isa = PBXGroup;
 			children = (
-				E4CDA89A2C0E2E1800518BBD /* tunioApp.swift */,
+				E4CDA89A2C0E2E1800518BBD /* TunioApp.swift */,
 				E44FABDC2C17E59700D1EB63 /* PermissionsChecker.swift */,
 				E4CDA89C2C0E2E1800518BBD /* ContentView.swift */,
 				E44FABDA2C17E4EA00D1EB63 /* NoteMarkerViews.swift */,
 				E4CDA89E2C0E2E1B00518BBD /* Assets.xcassets */,
-				E4CDA8A02C0E2E1B00518BBD /* tunio.entitlements */,
+				E4CDA8A02C0E2E1B00518BBD /* Tunio.entitlements */,
 				E4CDA8A12C0E2E1B00518BBD /* Preview Content */,
 			);
-			path = tunio;
+			path = Tunio;
 			sourceTree = "<group>";
 		};
 		E4CDA8A12C0E2E1B00518BBD /* Preview Content */ = {
@@ -84,9 +84,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4CDA8962C0E2E1800518BBD /* tunio */ = {
+		E4CDA8962C0E2E1800518BBD /* Tunio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4CDA8A62C0E2E1B00518BBD /* Build configuration list for PBXNativeTarget "tunio" */;
+			buildConfigurationList = E4CDA8A62C0E2E1B00518BBD /* Build configuration list for PBXNativeTarget "Tunio" */;
 			buildPhases = (
 				E4CDA8932C0E2E1800518BBD /* Sources */,
 				E4CDA8942C0E2E1800518BBD /* Frameworks */,
@@ -96,14 +96,14 @@
 			);
 			dependencies = (
 			);
-			name = tunio;
+			name = Tunio;
 			packageProductDependencies = (
 				E44FABD22C1272EA00D1EB63 /* AudioKit */,
 				E44FABD52C12744600D1EB63 /* SoundpipeAudioKit */,
 				E44FABD82C13678900D1EB63 /* AudioKitUI */,
 			);
 			productName = tunio;
-			productReference = E4CDA8972C0E2E1800518BBD /* tunio.app */;
+			productReference = E4CDA8972C0E2E1800518BBD /* Tunio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +121,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E4CDA8922C0E2E1800518BBD /* Build configuration list for PBXProject "tunio" */;
+			buildConfigurationList = E4CDA8922C0E2E1800518BBD /* Build configuration list for PBXProject "Tunio" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -139,7 +139,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E4CDA8962C0E2E1800518BBD /* tunio */,
+				E4CDA8962C0E2E1800518BBD /* Tunio */,
 			);
 		};
 /* End PBXProject section */
@@ -164,7 +164,7 @@
 				E44FABDD2C17E59700D1EB63 /* PermissionsChecker.swift in Sources */,
 				E4CDA89D2C0E2E1800518BBD /* ContentView.swift in Sources */,
 				E44FABDB2C17E4EA00D1EB63 /* NoteMarkerViews.swift in Sources */,
-				E4CDA89B2C0E2E1800518BBD /* tunioApp.swift in Sources */,
+				E4CDA89B2C0E2E1800518BBD /* TunioApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +364,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4CDA8922C0E2E1800518BBD /* Build configuration list for PBXProject "tunio" */ = {
+		E4CDA8922C0E2E1800518BBD /* Build configuration list for PBXProject "Tunio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4CDA8A42C0E2E1B00518BBD /* Debug */,
@@ -373,7 +373,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4CDA8A62C0E2E1B00518BBD /* Build configuration list for PBXNativeTarget "tunio" */ = {
+		E4CDA8A62C0E2E1B00518BBD /* Build configuration list for PBXNativeTarget "Tunio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4CDA8A72C0E2E1B00518BBD /* Debug */,
