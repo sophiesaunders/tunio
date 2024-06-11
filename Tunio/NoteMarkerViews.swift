@@ -44,7 +44,7 @@ struct CurrentNoteMarker : View {
                     .cornerRadius(4)
                     .foregroundColor(-5 < distance && distance < 5 ? .green : .red)
             }
-            .frame(width: geometry.size.width)
+            .frame(width: geometry.size.width * 0.9)
             .offset(x: (geometry.size.width / 2) * CGFloat(distance / 50))
             .animation(.easeInOut, value: distance)
             .fixedSize()

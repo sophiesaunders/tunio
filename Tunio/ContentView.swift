@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        ZStack {
+        GeometryReader { metrics in
             
             VStack {
                 
@@ -23,43 +23,51 @@ struct ContentView: View {
                 
                 HStack {
                     Text(td.data.note)
-                        .font(.system(size: 40, design: .serif))
-                }.padding()
+                        .font(.system(size: 200, design: .serif))
+                        .minimumScaleFactor(0.1)
+                        .lineLimit(1)
+                        .padding()
+                }
+                .padding()
+                .frame(height: metrics.size.height * 0.25)
                 
-                HStack {
+                VStack {
                     Text("\(td.data.pitch, specifier: "%0.1f") Hz")
+                        .minimumScaleFactor(0.1)
+                        .font(.system(size: 15, design: .serif))
+                        .lineLimit(1)
+                    Text("Amplitude: \(td.data.amplitude, specifier: "%0.2f")")
+                        .minimumScaleFactor(0.1)
+                        .font(.system(size: 15, design: .serif))
+                        .lineLimit(1)
+                    Text("Octave: \(td.data.octave)")
+                        .minimumScaleFactor(0.1)
+                        .font(.system(size: 15, design: .serif))
+                        .lineLimit(1)
                 }
-                
-                HStack {
-                    Text("Amplitude:")
-                    Text("\(td.data.amplitude, specifier: "%0.1f")")
-                }
-                
-                HStack {
-                    Text("Octave:")
-                    Text(String(td.data.octave))
-                }
+                .padding(.bottom)
+                .frame(height: metrics.size.height * 0.2)
                 
                 Spacer()
                 
                 NoteDistanceConstantMarkers()
                     .overlay(CurrentNoteMarker(distance: td.data.distance))
+                    .frame(height: metrics.size.width * 0.25)
                 
                 NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: Color("LighterPink"))
                     .clipped()
-                    .frame(height: 200)
+                    .frame(height: metrics.size.height * 0.25)
                 
             }
-        }
-        .font(.system(size: 20, design: .serif))
-        .background(Color("LighterPink"))
-        .task {
-            if !td.engine.avEngine.isRunning {
-                td.start()
+            .background(Color("LighterPink"))
+            .task {
+                if !td.engine.avEngine.isRunning {
+                    td.start()
+                }
             }
-        }
-        .task {
-            await PermissionsChecker.getMicrophoneAccess()
+            .task {
+                await PermissionsChecker.getMicrophoneAccess()
+            }
         }
     }
 }
