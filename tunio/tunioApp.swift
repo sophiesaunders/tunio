@@ -105,18 +105,4 @@ class ToneDetector : ObservableObject, HasAudioEngine {
         
         data.distance = 1200 * log2f(Float(frequency / noteFrequencies[index]))
     }
-    
-    func getMicrophoneAccess() async {
-        if #available(iOS 17.0, *) {
-            let permission = AVAudioApplication.shared.recordPermission
-            switch permission {
-                case .granted: return
-                case .denied: fatalError()
-                case .undetermined: break
-                default: break
-            }
-            
-            await AVAudioApplication.requestRecordPermission()
-        }
-    }
 }

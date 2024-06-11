@@ -5,6 +5,7 @@
 //  Created by Sophie Saunders on 6/3/24.
 //
 
+import AVFoundation // AVAudioApplication
 import AudioKitUI // NodeOutputView
 import SwiftUI
 
@@ -35,6 +36,38 @@ struct NoteDistanceConstantMarkers: View {
     }
 }
 
+struct CurrentNoteMarker : View {
+    let distance: Float
+    
+    var body: some View {
+        GeometryReader { geometry in
+            VStack(alignment: .center) {
+                Rectangle()
+                    .frame(width: 4, height: 160)
+                    .cornerRadius(4)
+                    .foregroundColor(-5 < distance && distance < 5 ? .green : .red)
+            }
+            .frame(width: geometry.size.width)
+            .offset(x: (geometry.size.width / 2) * CGFloat(distance / 50))
+            .animation(.easeInOut, value: distance)
+        }
+    }
+}
+
+func getMicrophoneAccess() async {
+    if #available(iOS 17.0, *) {
+        let permission = AVAudioApplication.shared.recordPermission
+        switch permission {
+            case .granted: return
+            case .denied: fatalError()
+            case .undetermined: break
+            default: break
+        }
+        
+        await AVAudioApplication.requestRecordPermission()
+    }
+}
+
 struct ContentView: View {
     
     // StateObject means that when a Published value changes, we will be notified.
@@ -55,12 +88,6 @@ struct ContentView: View {
             }.padding()
             
             HStack {
-                Text("Distance:")
-                Text("\(td.data.distance, specifier: "%0.1f") cents")
-            }
-            
-            HStack {
-                Text("Frequency:")
                 Text("\(td.data.pitch, specifier: "%0.1f") Hz")
             }
             
@@ -68,7 +95,7 @@ struct ContentView: View {
                 Text("Amplitude:")
                 Text("\(td.data.amplitude, specifier: "%0.1f")")
             }
-                        
+            
             HStack {
                 Text("Octave:")
                 Text(String(td.data.octave))
@@ -76,7 +103,8 @@ struct ContentView: View {
             
             Spacer()
             
-            NoteDistanceConstantMarkers().padding()
+            NoteDistanceConstantMarkers()
+                .overlay(CurrentNoteMarker(distance: td.data.distance))
             
             NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: Color("LighterPink"))
                 .clipped()
@@ -102,7 +130,7 @@ struct ContentView: View {
             }
         }
         .task {
-            await td.getMicrophoneAccess()
+            await getMicrophoneAccess()
         }
     }
 }
