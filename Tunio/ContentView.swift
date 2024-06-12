@@ -37,7 +37,7 @@ struct ContentView: View {
                             Text(String(td.data.octave))
                                 .font(.system(size: 25, design: .serif))
                                 .minimumScaleFactor(0.1)
-                                .baselineOffset(-50)
+                                .baselineOffset(-70)
                         }
                     }
                     Text("\(td.data.pitch, specifier: "%0.1f") Hz")
@@ -53,12 +53,12 @@ struct ContentView: View {
                     .overlay(CurrentNoteMarker(distance: td.data.distance, totalHeight: metrics.size.height))
                     .frame(height: metrics.size.width * 0.25)
                 
-                NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: Color("LighterPink"))
+                NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: Color("LighterBlue"))
                     .clipped()
                     .frame(height: metrics.size.height * 0.25)
                 
             }
-            .background(Color("LighterPink"))
+            .background(Color("LighterBlue"))
             .task {
                 await PermissionsChecker.getMicrophoneAccess()
             }
