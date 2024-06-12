@@ -17,6 +17,7 @@
 		E4CDA89F2C0E2E1B00518BBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CDA89E2C0E2E1B00518BBD /* Assets.xcassets */; };
 		E4CDA8A32C0E2E1B00518BBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CDA8A22C0E2E1B00518BBD /* Preview Assets.xcassets */; };
 		E4DF5B982C1933E300245A66 /* TuningLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF5B972C1933E300245A66 /* TuningLogic.swift */; };
+		E4DF5B9A2C19F17F00245A66 /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF5B992C19F17F00245A66 /* ToggleSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		E4CDA8A02C0E2E1B00518BBD /* Tunio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tunio.entitlements; sourceTree = "<group>"; };
 		E4CDA8A22C0E2E1B00518BBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4DF5B972C1933E300245A66 /* TuningLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningLogic.swift; sourceTree = "<group>"; };
+		E4DF5B992C19F17F00245A66 /* ToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				E4DF5B972C1933E300245A66 /* TuningLogic.swift */,
 				E44FABDC2C17E59700D1EB63 /* PermissionsChecker.swift */,
 				E4CDA89C2C0E2E1800518BBD /* ContentView.swift */,
+				E4DF5B992C19F17F00245A66 /* ToggleSwitch.swift */,
 				E44FABDA2C17E4EA00D1EB63 /* NoteMarkerViews.swift */,
 				E4CDA89E2C0E2E1B00518BBD /* Assets.xcassets */,
 				E4CDA8A02C0E2E1B00518BBD /* Tunio.entitlements */,
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44FABDD2C17E59700D1EB63 /* PermissionsChecker.swift in Sources */,
+				E4DF5B9A2C19F17F00245A66 /* ToggleSwitch.swift in Sources */,
 				E4DF5B982C1933E300245A66 /* TuningLogic.swift in Sources */,
 				E4CDA89D2C0E2E1800518BBD /* ContentView.swift in Sources */,
 				E44FABDB2C17E4EA00D1EB63 /* NoteMarkerViews.swift in Sources */,

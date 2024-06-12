@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NoteDistanceConstantMarkers: View {
+    
     var body: some View {
 
         // All the horizontal tick marks
@@ -18,7 +19,6 @@ struct NoteDistanceConstantMarkers: View {
                     .frame(width: 1, height: tickSize(forIndex: index))
                     .cornerRadius(1)
                     .foregroundColor(Color("DarkerGray"))
-                    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                 
                 Spacer()
             }

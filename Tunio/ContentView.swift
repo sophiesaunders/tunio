@@ -12,6 +12,7 @@ struct ContentView: View {
     
     // StateObject means that when a Published value changes, we will be notified.
     @StateObject var td = ToneDetector()
+    @State var displaySharp = false
     
     var body: some View {
         
@@ -19,35 +20,32 @@ struct ContentView: View {
             
             VStack {
                 
-                Spacer()
-                
                 HStack {
-                    Text(td.data.note)
-                        .font(.system(size: 200, design: .serif))
-                        .minimumScaleFactor(0.1)
-                        .lineLimit(1)
-                    if td.data.note != "-" {
-                        Text(String(td.data.octave))
-                            .font(.system(size: 25, design: .serif))
-                            .minimumScaleFactor(0.1)
-                            .baselineOffset(-50)
-                    }
+                    ToggleSwitch(toggleOn: $displaySharp)
+                    Spacer()
                 }
-                .padding()
-                .frame(height: metrics.size.height * 0.25)
                 
+                Spacer()
+                                
                 VStack {
+                    HStack {
+                        Text(displaySharp ? td.data.noteFlat : td.data.noteSharp)
+                            .font(.system(size: 200, design: .serif))
+                            .minimumScaleFactor(0.1)
+                            .lineLimit(1)
+                        if td.data.noteFlat != "-" {
+                            Text(String(td.data.octave))
+                                .font(.system(size: 25, design: .serif))
+                                .minimumScaleFactor(0.1)
+                                .baselineOffset(-50)
+                        }
+                    }
                     Text("\(td.data.pitch, specifier: "%0.1f") Hz")
                         .minimumScaleFactor(0.1)
                         .font(.system(size: 15, design: .serif))
                         .lineLimit(1)
-                    Text("Amplitude: \(td.data.amplitude, specifier: "%0.2f")")
-                        .minimumScaleFactor(0.1)
-                        .font(.system(size: 15, design: .serif))
-                        .lineLimit(1)
                 }
-                .padding(.bottom)
-                .frame(height: metrics.size.height * 0.2)
+                .frame(height: metrics.size.height * 0.3)
                 
                 Spacer()
                 

@@ -27,7 +27,6 @@ This project is certainly still a work in progress, so stay tuned for more upcom
 ### Short-term: Tuner
 - Add an app icon and a logo.
 - Update to matching color scheme.
-- Add toggle button at top for viewing by flats vs sharps.
 - Make it so if microphone permission is denied, we keep checking the status automatically and begin working when permission is granted (without refresh).
 - Reset tuner back to default position if no sound for a certain amount of time?
 - Test: Make sure iOS doesn't freeze anymore after sitting in background.

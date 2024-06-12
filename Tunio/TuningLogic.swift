@@ -15,7 +15,8 @@ struct TunerData {
     var pitch: Float = 0.0
     var amplitude: Float = 0.0
     var octave: Int = 0
-    var note = "-"
+    var noteFlat = "-"
+    var noteSharp = "-"
     var distance: Float = 0.0
 }
 
@@ -78,11 +79,8 @@ class ToneDetector : ObservableObject, HasAudioEngine {
             }
         }
         data.octave = Int(log2f(pitch / frequency))
-        if noteNamesFlats[index] == noteNamesSharps[index] {
-            data.note = "\(noteNamesFlats[index])"
-        } else {
-            data.note = "\(noteNamesFlats[index]) / \(noteNamesSharps[index])"
-        }
+        data.noteFlat = noteNamesFlats[index]
+        data.noteSharp = noteNamesSharps[index]
         
         // There are 1200 musical "cents" in an octave.
         data.distance = 1200 * log2f(Float(frequency / noteFrequencies[index]))
