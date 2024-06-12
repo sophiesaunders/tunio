@@ -1,6 +1,6 @@
 //
-//  tunioApp.swift
-//  tunio
+//  TunioApp.swift
+//  Tunio
 //
 //  Created by Sophie Saunders on 6/3/24.
 //
@@ -12,7 +12,7 @@ import AVFoundation // AVAudioSession
 import SwiftUI
 
 @main
-struct tunioApp: App {
+struct TunioApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -63,7 +63,7 @@ class ToneDetector : ObservableObject, HasAudioEngine {
     }
     
     func update(_ pitch: AUValue, _ amp: AUValue) {
-        guard amp > 0.1 else { return }
+        guard amp > 0.07 else { return }
         
         data.pitch = pitch
         data.amplitude = amp
@@ -94,6 +94,7 @@ class ToneDetector : ObservableObject, HasAudioEngine {
             data.note = "\(noteNamesFlats[index]) / \(noteNamesSharps[index])"
         }
         
+        // There are 1200 musical "cents" in an octave.
         data.distance = 1200 * log2f(Float(frequency / noteFrequencies[index]))
     }
 }

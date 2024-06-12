@@ -1,6 +1,6 @@
 //
 //  NoteMarkerViews.swift
-//  tunio
+//  Tunio
 //
 //  Created by Sophie Saunders on 6/10/24.
 //
@@ -42,12 +42,22 @@ struct CurrentNoteMarker : View {
                 Rectangle()
                     .frame(width: 4, height: 160)
                     .cornerRadius(4)
-                    .foregroundColor(-5 < distance && distance < 5 ? .green : .red)
+                    .foregroundColor(-8 < distance && distance < 8 ? .green : .red)
             }
-            .frame(width: geometry.size.width * 0.9)
-            .offset(x: (geometry.size.width / 2) * CGFloat(distance / 50))
+            .frame(width: geometry.size.width)
+            .offset(x: getOffset(width: geometry.size.width, distance: distance))
             .animation(.easeInOut, value: distance)
             .fixedSize()
         }
+    }
+    private func getOffset(width: Double, distance: Float) -> CGFloat {
+        var offset = (width / 2) * CGFloat(distance / 50)
+        if offset < (-width / 2) {
+            offset = -width / 2
+        }
+        if offset > (width / 2) {
+            offset = width / 2
+        }
+        return offset
     }
 }

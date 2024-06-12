@@ -1,6 +1,6 @@
 //
 //  PermissionsChecker.swift
-//  tunio
+//  Tunio
 //
 //  Created by Sophie Saunders on 6/10/24.
 //
@@ -15,7 +15,7 @@ class PermissionsChecker {
             let permission = AVAudioApplication.shared.recordPermission
             switch permission {
                 case .granted: return
-                case .denied: fatalError()
+                case .denied: print("Microphone permission not granted.")
                 case .undetermined: break
                 default: break
             }
@@ -32,7 +32,7 @@ class PermissionsChecker {
                 try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .mixWithOthers, .allowBluetooth])
                 try AVAudioSession.sharedInstance().setActive(true)
             } catch {
-                fatalError()
+                print("Failed to configure AVAudioSession.")
             }
         #endif
     }

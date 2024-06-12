@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  tunio
+//  Tunio
 //
 //  Created by Sophie Saunders on 6/3/24.
 //
@@ -26,7 +26,12 @@ struct ContentView: View {
                         .font(.system(size: 200, design: .serif))
                         .minimumScaleFactor(0.1)
                         .lineLimit(1)
-                        .padding()
+                    if td.data.note != "-" {
+                        Text(String(td.data.octave))
+                            .font(.system(size: 25, design: .serif))
+                            .minimumScaleFactor(0.1)
+                            .baselineOffset(-50)
+                    }
                 }
                 .padding()
                 .frame(height: metrics.size.height * 0.25)
@@ -37,10 +42,6 @@ struct ContentView: View {
                         .font(.system(size: 15, design: .serif))
                         .lineLimit(1)
                     Text("Amplitude: \(td.data.amplitude, specifier: "%0.2f")")
-                        .minimumScaleFactor(0.1)
-                        .font(.system(size: 15, design: .serif))
-                        .lineLimit(1)
-                    Text("Octave: \(td.data.octave)")
                         .minimumScaleFactor(0.1)
                         .font(.system(size: 15, design: .serif))
                         .lineLimit(1)
@@ -61,12 +62,12 @@ struct ContentView: View {
             }
             .background(Color("LighterPink"))
             .task {
+                await PermissionsChecker.getMicrophoneAccess()
+            }
+            .task {
                 if !td.engine.avEngine.isRunning {
                     td.start()
                 }
-            }
-            .task {
-                await PermissionsChecker.getMicrophoneAccess()
             }
         }
     }
