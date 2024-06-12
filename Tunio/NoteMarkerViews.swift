@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NoteDistanceConstantMarkers: View {
+    let totalHeight: CGFloat
     
     var body: some View {
 
@@ -26,21 +27,22 @@ struct NoteDistanceConstantMarkers: View {
     }
     private func tickSize(forIndex index: Int) -> CGFloat {
         switch index {
-        case 12: 160 // Middle tick is the tallest
-        case 7, 2, 17, 22: 95
-        default: 50
+        case 12: totalHeight * 0.25 // Middle tick is the tallest
+        case 7, 2, 17, 22: totalHeight * 0.16
+        default: totalHeight * 0.09
         }
     }
 }
 
 struct CurrentNoteMarker : View {
     let distance: Float
+    let totalHeight: CGFloat
     
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .center) {
                 Rectangle()
-                    .frame(width: 4, height: 160)
+                    .frame(width: 4, height: totalHeight * 0.25)
                     .cornerRadius(4)
                     .foregroundColor(-8 < distance && distance < 8 ? .green : .red)
             }

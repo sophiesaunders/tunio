@@ -49,8 +49,8 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                NoteDistanceConstantMarkers()
-                    .overlay(CurrentNoteMarker(distance: td.data.distance))
+                NoteDistanceConstantMarkers(totalHeight: metrics.size.height)
+                    .overlay(CurrentNoteMarker(distance: td.data.distance, totalHeight: metrics.size.height))
                     .frame(height: metrics.size.width * 0.25)
                 
                 NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: Color("LighterPink"))
