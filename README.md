@@ -25,11 +25,12 @@ This project is certainly still a work in progress, so stay tuned for more upcom
 ## To Do List
 
 ### Short-term: Tuner
+- Give the macOS icon rounded corners.
 - Make the sharp or flat symbol small and elevated.
 - Include the logo or icon somewhere on the app?
 - Make it so if microphone permission is denied, we keep checking the status automatically and begin working when permission is granted (without refresh).
-- Reset tuner back to default position if no sound for a certain amount of time?
-- Test: Make sure iOS doesn't freeze anymore after sitting in background.
+- Bug: iOS sound input freezes after sitting in background.
+- Bug: The light blue color looks white on iOS.
 
 ### Long-term: Brainstorm
 - Add a sustained note mode (user selects the note, the app plays a tone).

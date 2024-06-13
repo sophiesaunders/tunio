@@ -37,7 +37,7 @@ struct ContentView: View {
                             Text(String(td.data.octave))
                                 .font(.system(size: 25, design: .serif))
                                 .minimumScaleFactor(0.1)
-                                .baselineOffset(-70)
+                                .baselineOffset(-metrics.size.height * 0.3 * 0.5)
                         }
                     }
                     Text("\(td.data.pitch, specifier: "%0.1f") Hz")
