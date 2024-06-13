@@ -30,19 +30,19 @@ struct ContentView: View {
                 VStack {
                     HStack {
                         Text(displaySharp ? td.data.noteFlat : td.data.noteSharp)
-                            .font(.system(size: 200, design: .serif))
                             .minimumScaleFactor(0.1)
+                            .font(Font.custom("GentiumPlus", size: 200))
                             .lineLimit(1)
                         if td.data.noteFlat != "-" {
                             Text(String(td.data.octave))
-                                .font(.system(size: 25, design: .serif))
                                 .minimumScaleFactor(0.1)
+                                .font(Font.custom("GentiumPlus", size: 25))
                                 .baselineOffset(-metrics.size.height * 0.3 * 0.5)
                         }
                     }
                     Text("\(td.data.pitch, specifier: "%0.1f") Hz")
                         .minimumScaleFactor(0.1)
-                        .font(.system(size: 15, design: .serif))
+                        .font(Font.custom("GentiumPlus", size: 15))
                         .lineLimit(1)
                 }
                 .frame(height: metrics.size.height * 0.3)

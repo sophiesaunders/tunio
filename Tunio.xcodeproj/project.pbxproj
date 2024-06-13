@@ -18,6 +18,7 @@
 		E4CDA8A32C0E2E1B00518BBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CDA8A22C0E2E1B00518BBD /* Preview Assets.xcassets */; };
 		E4DF5B982C1933E300245A66 /* TuningLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF5B972C1933E300245A66 /* TuningLogic.swift */; };
 		E4DF5B9A2C19F17F00245A66 /* ToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF5B992C19F17F00245A66 /* ToggleSwitch.swift */; };
+		E4DF5B9C2C1B430900245A66 /* GentiumPlus-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4DF5B9B2C1B430900245A66 /* GentiumPlus-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		E4CDA8A22C0E2E1B00518BBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4DF5B972C1933E300245A66 /* TuningLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningLogic.swift; sourceTree = "<group>"; };
 		E4DF5B992C19F17F00245A66 /* ToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSwitch.swift; sourceTree = "<group>"; };
+		E4DF5B9B2C1B430900245A66 /* GentiumPlus-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GentiumPlus-Regular.ttf"; sourceTree = "<group>"; };
+		E4DF5B9D2C1B433D00245A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 		E4CDA8992C0E2E1800518BBD /* Tunio */ = {
 			isa = PBXGroup;
 			children = (
+				E4DF5B9D2C1B433D00245A66 /* Info.plist */,
 				E4CDA89A2C0E2E1800518BBD /* TunioApp.swift */,
 				E4DF5B972C1933E300245A66 /* TuningLogic.swift */,
 				E44FABDC2C17E59700D1EB63 /* PermissionsChecker.swift */,
@@ -73,6 +77,7 @@
 				E4DF5B992C19F17F00245A66 /* ToggleSwitch.swift */,
 				E44FABDA2C17E4EA00D1EB63 /* NoteMarkerViews.swift */,
 				E4CDA89E2C0E2E1B00518BBD /* Assets.xcassets */,
+				E4DF5B9B2C1B430900245A66 /* GentiumPlus-Regular.ttf */,
 				E4CDA8A02C0E2E1B00518BBD /* Tunio.entitlements */,
 				E4CDA8A12C0E2E1B00518BBD /* Preview Content */,
 			);
@@ -156,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4CDA8A32C0E2E1B00518BBD /* Preview Assets.xcassets in Resources */,
+				E4DF5B9C2C1B430900245A66 /* GentiumPlus-Regular.ttf in Resources */,
 				E4CDA89F2C0E2E1B00518BBD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +311,7 @@
 				DEVELOPMENT_TEAM = 8S6UQ4C3S2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tunio/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is used to capture input for detecting sound properties.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -343,6 +350,7 @@
 				DEVELOPMENT_TEAM = 8S6UQ4C3S2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tunio/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is used to capture input for detecting sound properties.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

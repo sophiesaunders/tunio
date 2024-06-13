@@ -26,7 +26,6 @@ This project is certainly still a work in progress, so stay tuned for more upcom
 
 ### Short-term: Tuner
 - Give the macOS icon rounded corners.
-- Make the sharp or flat symbol small and elevated.
 - Include the logo or icon somewhere on the app?
 - Make it so if microphone permission is denied, we keep checking the status automatically and begin working when permission is granted (without refresh).
 - Bug: iOS sound input freezes after sitting in background.
