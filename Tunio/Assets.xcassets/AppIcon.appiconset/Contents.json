@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "IconOnly.png",
+      "filename" : "IconOnly_iOS_1024.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

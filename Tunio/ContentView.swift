@@ -14,6 +14,12 @@ struct ContentView: View {
     @StateObject var td = ToneDetector()
     @State var displaySharp = false
     
+    #if os(iOS)
+    let background = Color("MediumBlue")
+    #else
+    let background = Color("LighterBlue")
+    #endif
+    
     var body: some View {
         
         GeometryReader { metrics in
@@ -53,12 +59,12 @@ struct ContentView: View {
                     .overlay(CurrentNoteMarker(distance: td.data.distance, totalHeight: metrics.size.height))
                     .frame(height: metrics.size.width * 0.25)
                 
-                NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: Color("LighterBlue"))
+                NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: background)
                     .clipped()
                     .frame(height: metrics.size.height * 0.25)
                 
             }
-            .background(Color("LighterBlue"))
+            .background(background)
             .task {
                 await PermissionsChecker.getMicrophoneAccess()
             }

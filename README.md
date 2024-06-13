@@ -28,7 +28,6 @@ This project is certainly still a work in progress, so stay tuned for more upcom
 - Include the logo or icon somewhere on the app?
 - Make it so if microphone permission is denied, we keep checking the status automatically and begin working when permission is granted (without refresh).
 - Bug: iOS sound input freezes after sitting in background.
-- Bug: The light blue color looks white on iOS.
 
 ### Long-term: Brainstorm
 - Add a sustained note mode (user selects the note, the app plays a tone).
