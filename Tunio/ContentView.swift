@@ -29,10 +29,13 @@ struct ContentView: View {
                 HStack {
                     ToggleSwitch(toggleOn: $displaySharp)
                     Spacer()
+                    Image(.iconOnlyTransparentNoBuffer)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 45)
+                        .padding()
                 }
-                
-                Spacer()
-                                
+                                                
                 VStack {
                     HStack {
                         Text(displaySharp ? td.data.noteFlat : td.data.noteSharp)
