@@ -24,6 +24,9 @@
 /* Begin PBXFileReference section */
 		E44FABDA2C17E4EA00D1EB63 /* NoteMarkerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteMarkerViews.swift; sourceTree = "<group>"; };
 		E44FABDC2C17E59700D1EB63 /* PermissionsChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsChecker.swift; sourceTree = "<group>"; };
+		E4C8D5E42C1FE3A800B16E11 /* IMG_3231.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3231.PNG; sourceTree = "<group>"; };
+		E4C8D5E52C1FE3A800B16E11 /* IMG_3228.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3228.PNG; sourceTree = "<group>"; };
+		E4C8D5E62C1FE3A800B16E11 /* IMG_3230.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3230.PNG; sourceTree = "<group>"; };
 		E4CDA8972C0E2E1800518BBD /* Tunio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4CDA89A2C0E2E1800518BBD /* TunioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunioApp.swift; sourceTree = "<group>"; };
 		E4CDA89C2C0E2E1800518BBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4C8D5E32C1FE39A00B16E11 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E4C8D5E52C1FE3A800B16E11 /* IMG_3228.PNG */,
+				E4C8D5E62C1FE3A800B16E11 /* IMG_3230.PNG */,
+				E4C8D5E42C1FE3A800B16E11 /* IMG_3231.PNG */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		E4CDA88E2C0E2E1800518BBD = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E4DF5B9D2C1B433D00245A66 /* Info.plist */,
+				E4C8D5E32C1FE39A00B16E11 /* Images */,
 				E4CDA89A2C0E2E1800518BBD /* TunioApp.swift */,
 				E4DF5B972C1933E300245A66 /* TuningLogic.swift */,
 				E44FABDC2C17E59700D1EB63 /* PermissionsChecker.swift */,
