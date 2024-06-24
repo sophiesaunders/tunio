@@ -10,17 +10,14 @@ import AudioKit // Settings
 
 class PermissionsChecker {
     
-    static func getMicrophoneAccess() async {
+    static func getMicrophoneAccess() async -> Bool {
         if #available(iOS 17.0, *) {
             let permission = AVAudioApplication.shared.recordPermission
             switch permission {
-                case .granted: return
-                case .denied: print("Microphone permission not granted.")
-                case .undetermined: break
-                default: break
+                case .granted: return true
+                case .denied: return false
+                default: return await AVAudioApplication.requestRecordPermission()
             }
-            
-            await AVAudioApplication.requestRecordPermission()
         }
     }
     

@@ -14,6 +14,7 @@ struct ContentView: View {
     @StateObject var td = ToneDetector()
     @Environment(\.scenePhase) var scenePhase
     @State var displaySharp = false
+    @State var missingPermissions = true
     
     #if os(iOS)
     let background = Color("MediumBlue")
@@ -36,8 +37,16 @@ struct ContentView: View {
                         .frame(height: 45)
                         .padding()
                 }
-                                                
+                                        
                 VStack {
+                    if missingPermissions {
+                        Text("Tuner requires microphone access. Please update your settings.")
+                            .minimumScaleFactor(0.01)
+                            .font(Font.custom("GentiumPlus", size: 200))
+                            .lineLimit(2)
+                            .multilineTextAlignment(.center)
+                            .padding([.leading, .trailing])
+                    }
                     HStack {
                         Text(displaySharp ? td.data.noteFlat : td.data.noteSharp)
                             .minimumScaleFactor(0.1)
@@ -61,16 +70,18 @@ struct ContentView: View {
                 
                 NoteDistanceConstantMarkers(totalHeight: metrics.size.height)
                     .overlay(CurrentNoteMarker(distance: td.data.distance, totalHeight: metrics.size.height))
-                    .frame(height: metrics.size.width * 0.25)
+                    .frame(height: metrics.size.height * 0.25)
                 
                 NodeOutputView(td.tappableB, color: Color("DarkerGray"), backgroundColor: background)
                     .clipped()
                     .frame(height: metrics.size.height * 0.25)
-                
+                                
             }
             .background(background)
             .task {
-                await PermissionsChecker.getMicrophoneAccess()
+                if await PermissionsChecker.getMicrophoneAccess() {
+                    missingPermissions = false
+                }
             }
             .onChange(of: scenePhase) { oldPhase, newPhase in
                 if newPhase == .active {
