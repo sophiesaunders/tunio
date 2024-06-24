@@ -25,7 +25,6 @@ This project is certainly still a work in progress, so stay tuned for more upcom
 ## To Do List
 
 ### Short-term: Tuner
-- Make it so if microphone permission is denied, we keep checking the status automatically and begin working when permission is granted (without refresh).
 - Bug: iOS sound input freezes after sitting in background.
 
 ### Long-term: Brainstorm

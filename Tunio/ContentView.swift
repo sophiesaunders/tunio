@@ -86,17 +86,14 @@ struct ContentView: View {
             .onChange(of: scenePhase) { oldPhase, newPhase in
                 if newPhase == .active {
                     if !td.engine.avEngine.isRunning {
-                        print("Now Active")
                         td.start()
                     }
                 } else if newPhase == .inactive {
                     if td.engine.avEngine.isRunning {
-                        print("Now Inactive")
                         td.stop()
                     }
                 } else if newPhase == .background {
                     if td.engine.avEngine.isRunning {
-                        print("Now Background")
                         td.stop()
                     }
                 }
