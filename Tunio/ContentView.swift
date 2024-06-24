@@ -12,6 +12,7 @@ struct ContentView: View {
     
     // StateObject means that when a Published value changes, we will be notified.
     @StateObject var td = ToneDetector()
+    @Environment(\.scenePhase) var scenePhase
     @State var displaySharp = false
     
     #if os(iOS)
@@ -71,9 +72,22 @@ struct ContentView: View {
             .task {
                 await PermissionsChecker.getMicrophoneAccess()
             }
-            .task {
-                if !td.engine.avEngine.isRunning {
-                    td.start()
+            .onChange(of: scenePhase) { oldPhase, newPhase in
+                if newPhase == .active {
+                    if !td.engine.avEngine.isRunning {
+                        print("Now Active")
+                        td.start()
+                    }
+                } else if newPhase == .inactive {
+                    if td.engine.avEngine.isRunning {
+                        print("Now Inactive")
+                        td.stop()
+                    }
+                } else if newPhase == .background {
+                    if td.engine.avEngine.isRunning {
+                        print("Now Background")
+                        td.stop()
+                    }
                 }
             }
         }
