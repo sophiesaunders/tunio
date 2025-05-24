@@ -21,6 +21,7 @@ struct ToggleSwitch: View {
                         .frame(width:20, height:20)
                         .foregroundColor(.white)
                     Text(toggleOn ? "#" : "♭")
+                        .foregroundColor(.black)
                         .font(Font.custom("GentiumPlus", size:15))
                 }
                 .shadow(color: .black.opacity(0.14), radius: 4, x: 0, y: 2)

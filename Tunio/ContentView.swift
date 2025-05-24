@@ -40,7 +40,7 @@ struct ContentView: View {
                                         
                 VStack {
                     if missingPermissions {
-                        Text("Tuner requires microphone access. Please update your settings.")
+                        Text("Tunio requires microphone access. Please update your settings.")
                             .minimumScaleFactor(0.01)
                             .font(Font.custom("GentiumPlus", size: 200))
                             .lineLimit(2)
