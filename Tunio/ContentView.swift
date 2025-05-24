@@ -40,12 +40,26 @@ struct ContentView: View {
                                         
                 VStack {
                     if missingPermissions {
-                        Text("Tunio requires microphone access. Please update your settings.")
-                            .minimumScaleFactor(0.01)
-                            .font(Font.custom("GentiumPlus", size: 200))
-                            .lineLimit(2)
-                            .multilineTextAlignment(.center)
-                            .padding([.leading, .trailing])
+                        HStack(alignment: .top, spacing: 10) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                                .padding(.top, 4)
+
+                            Text("Tunio requires microphone access. Please update your settings.")
+                                .foregroundColor(.white)
+                                .font(.system(size: 16, weight: .semibold))
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(12)
+                        .padding([.horizontal, .top])
+                        .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+                        .transition(.move(edge: .top).combined(with: .opacity))
+                        .animation(.easeInOut(duration: 0.3), value: missingPermissions)
                     }
                     HStack {
                         Text(displaySharp ? td.data.noteFlat : td.data.noteSharp)
