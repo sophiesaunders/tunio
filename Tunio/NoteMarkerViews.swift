@@ -42,7 +42,7 @@ struct CurrentNoteMarker : View {
         GeometryReader { geometry in
             VStack(alignment: .center) {
                 Rectangle()
-                    .frame(width: 4, height: totalHeight * 0.25)
+                    .frame(width: 8, height: totalHeight * 0.25)
                     .cornerRadius(4)
                     .foregroundColor(-8 < distance && distance < 8 ? .green : .red)
             }
