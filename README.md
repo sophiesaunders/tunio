@@ -26,13 +26,15 @@ This project is certainly still a work in progress, so stay tuned for more upcom
 
 ### Short-term: Tuner
 - Bug: iOS sound input freezes after sitting in background.
+- Add a yellow range in the green -> red distance spectrum.
+- Take new screenshots for this doc.
 
 ### Long-term: Brainstorm
-- Improve the UI for showing flat -> sharp indicator. Make more creative.
 - Add a sustained note mode (user selects the note, the app plays a tone).
 - Add a metronome mode (user selects bpm and optionally number of beats per measure).
 - Add walkthrough mode for string instruments (guitar, ukulele) where it walks you through tuning each string in order and goes to the next once each one is in-tune.
 - Add unit tests.
+- Post on the app store.
 
 ## Current UI
 
