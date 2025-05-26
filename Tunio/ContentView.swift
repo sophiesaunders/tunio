@@ -75,7 +75,7 @@ struct ContentView: View {
                     }
                     Text("\(td.data.pitch, specifier: "%0.1f") Hz")
                         .minimumScaleFactor(0.1)
-                        .font(Font.custom("GentiumPlus", size: 15))
+                        .font(Font.custom("GentiumPlus", size: 20))
                         .lineLimit(1)
                 }
                 .frame(height: metrics.size.height * 0.3)

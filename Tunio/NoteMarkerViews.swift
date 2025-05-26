@@ -44,7 +44,8 @@ struct CurrentNoteMarker : View {
                 Rectangle()
                     .frame(width: 8, height: totalHeight * 0.25)
                     .cornerRadius(4)
-                    .foregroundColor(-8 < distance && distance < 8 ? .green : .red)
+                    .foregroundColor(-10 < distance && distance < 10 ? 
+                                      Color(red: 0.435, green: 0.8, blue: 0.361) : .red)
             }
             .frame(width: geometry.size.width)
             .offset(x: getOffset(width: geometry.size.width, distance: distance))
