@@ -14,7 +14,7 @@ struct ContentView: View {
     @StateObject var td = ToneDetector()
     @Environment(\.scenePhase) var scenePhase
     @State var displaySharp = false
-    @State var missingPermissions = true
+    @State var missingPermissions = false
     
     #if os(iOS)
     let background = Color("MediumBlue")
@@ -93,8 +93,8 @@ struct ContentView: View {
             }
             .background(background)
             .task {
-                if await PermissionsChecker.getMicrophoneAccess() {
-                    missingPermissions = false
+                if await !PermissionsChecker.getMicrophoneAccess() {
+                    missingPermissions = true
                 }
             }
             .onChange(of: scenePhase) { oldPhase, newPhase in
